@@ -11,6 +11,6 @@ namespace moment4NET.Models
         public string? GenreName { get; set;}
 
             // Relation to Song model
-        public List<Song>? Songs { get; set; } = new List<Song>();
+        public List<Song>? Songs { get; set; }
     }
 }

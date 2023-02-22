@@ -11,7 +11,7 @@ using moment4NET.Data;
 namespace moment4NET.Migrations
 {
     [DbContext(typeof(SongListContext))]
-    [Migration("20230221220134_InitialCreate")]
+    [Migration("20230222121353_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -65,11 +65,13 @@ namespace moment4NET.Migrations
 
             modelBuilder.Entity("moment4NET.Models.Song", b =>
                 {
-                    b.HasOne("moment4NET.Models.Genre", null)
+                    b.HasOne("moment4NET.Models.Genre", "Genre")
                         .WithMany("Songs")
                         .HasForeignKey("GenreId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Genre");
                 });
 
             modelBuilder.Entity("moment4NET.Models.Genre", b =>
